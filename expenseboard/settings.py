@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party
+    'django_extensions',
+    'djmoney',
+    # local
+    'expenses',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# djmoney
+# https://github.com/django-money/django-money
+
+CURRENCIES = ('EUR',)  # todo

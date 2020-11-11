@@ -1,0 +1,8 @@
+#!/bin/sh
+
+git diff --exit-code --name-only poetry.lock > /dev/null
+if [ $? -eq 1 ]; then
+  echo "poetry.lock has changed"
+  # create a probe file for the post-commit hook
+  touch .lockfilechanged
+fi

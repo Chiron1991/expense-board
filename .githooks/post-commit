@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -e .lockfilechanged ]; then
+    echo "updating requirements files..."
+    git add requirements.txt requirements-dev.txt
+    rm -f .lockfilechanged
+    echo "amending requirements files to the commit"
+#    git commit --amend -C HEAD --no-verify
+fi

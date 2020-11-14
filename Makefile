@@ -12,3 +12,4 @@ sh:
 
 init_dev:
 	git config core.hooksPath .githooks
+	poetry install --dev

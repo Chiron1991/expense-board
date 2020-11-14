@@ -26,6 +26,9 @@ SECRET_KEY = '@a-(!2-c_0dmwnf30)f60mzb_(j3l)*rsy7ql0$9&)o^b$*u6&'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+INTERNAL_IPS = []
+if DEBUG:
+    INTERNAL_IPS.append('127.0.0.1')  # for debug_toolbar
 
 
 # Application definition
@@ -40,9 +43,12 @@ INSTALLED_APPS = [
     # 3rd party
     'django_extensions',
     'djmoney',
+    'graphene_django',
     # local
     'expenses',
 ]
+if DEBUG:
+    INSTALLED_APPS.append('debug_toolbar')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if DEBUG:
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 ROOT_URLCONF = 'expenseboard.urls'
 
@@ -129,3 +137,11 @@ STATIC_URL = '/static/'
 # https://github.com/django-money/django-money
 
 CURRENCIES = ('EUR',)  # todo
+
+
+# graphene
+# https://docs.graphene-python.org/en/latest/
+
+GRAPHENE = {
+    'SCHEMA': 'expenses.graphql.schema.schema'
+}

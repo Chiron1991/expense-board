@@ -27,11 +27,11 @@ class CostCenter(models.Model):
 
 class VariableCost(models.Model):
     date = models.DateField()
-    cost = MoneyField(max_digits=19, decimal_places=4)
-    notes = models.TextField()
+    cost = MoneyField(max_digits=19, decimal_places=2)
+    notes = models.TextField(blank=True)
 
     cost_center = models.ForeignKey(CostCenter, on_delete=models.PROTECT)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     class Meta:
         verbose_name = _('Variable Cost')

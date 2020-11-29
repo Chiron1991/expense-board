@@ -11,8 +11,12 @@ sh:
 	python manage.py shell_plus
 
 init_dev:
-	git config core.hooksPath githooks
 	poetry install
+	rm -f db.sqlite3 || true
+	poetry run python manage.py migrate
+	poetry run python manage.py createsuperuser
+	poetry run python manage.py seed_data
+	$(MAKE) rs
 
 export_poetry_lockfile:
 	poetry export -f requirements.txt --output requirements.txt

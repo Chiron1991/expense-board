@@ -4,6 +4,11 @@ from django.utils.translation import gettext_lazy as _
 from expenses.models import Tag, CostCenter, VariableCost
 from expenses.utils import related_object_link
 
+# brand the admin from "Django" to "Expense Board"
+admin.site.site_title = _('Expense Board administration')
+admin.site.site_header = admin.site.site_title
+admin.site.index_title = admin.site.site_title
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):

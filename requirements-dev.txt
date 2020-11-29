@@ -28,6 +28,9 @@ graphql-core==2.3.2 \
 graphql-relay==2.0.1 \
     --hash=sha256:870b6b5304123a38a0b215a79eace021acce5a466bf40cd39fa18cb8528afabb \
     --hash=sha256:ac514cb86db9a43014d7e73511d521137ac12cf0101b2eaa5f0a3da2e10d913d
+gunicorn==20.0.4; python_version >= "3.4" \
+    --hash=sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c \
+    --hash=sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626
 promise==2.3 \
     --hash=sha256:dfd18337c523ba4b6a58801c164c1904a9d4d1b1747c7d5dbf45b693a49d93d0
 py-moneyed==0.8.0; python_version >= "3.5" \

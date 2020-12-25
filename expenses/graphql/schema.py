@@ -1,13 +1,17 @@
 import graphene
 
-from expenses.graphql.object_types import TagType, CostCenterType, VariableCostType
+from expenses.graphql.object_types import TagType, CostCenterType, VariableCostType, UserType
 from expenses.models import Tag, CostCenter, VariableCost
 
 
 class Query(graphene.ObjectType):
+    me = graphene.Field(UserType)
     all_tags = graphene.List(TagType)
     all_cost_centers = graphene.List(CostCenterType)
     all_variable_expenses = graphene.List(VariableCostType)
+
+    def resolve_me(self, info):
+        return info.context.user
 
     def resolve_all_tags(self, info):
         return Tag.objects.all()

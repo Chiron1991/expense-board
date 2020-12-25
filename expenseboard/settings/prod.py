@@ -114,3 +114,11 @@ CURRENCIES = ('EUR',)  # todo
 GRAPHENE = {
     'SCHEMA': 'expenses.graphql.schema.schema'
 }
+
+# django-extensions
+# https://django-extensions.readthedocs.io/en/latest/
+
+SHELL_PLUS_POST_IMPORTS = (
+    ('expenses.utils', 'prettify'),
+    ('expenses.graphql.schema', 'schema'),
+)

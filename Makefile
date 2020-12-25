@@ -10,6 +10,9 @@ mmg:
 sh:
 	python manage.py shell_plus
 
+test:
+	python manage.py test
+
 init_dev:
 	poetry install
 	rm -f db.sqlite3 || true

@@ -1,4 +1,5 @@
 import graphene
+from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 
 from expenses.models import Tag, CostCenter, VariableCost
@@ -13,7 +14,6 @@ _CURRENCY_SYMBOLS = {
 class MoneyType(graphene.ObjectType):
     """
     Used to represent moneyed's Money objects (as used by django-money's MoneyField).
-    todo: tests
     """
     amount = graphene.String()
     currencyName = graphene.String()
@@ -31,6 +31,20 @@ class MoneyType(graphene.ObjectType):
 
     def resolve_currencySymbol(self, info):
         return _CURRENCY_SYMBOLS.get(self.currency.code)
+
+
+class UserType(DjangoObjectType):
+    class Meta:
+        model = get_user_model()
+        fields = (
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'is_staff',
+            'is_superuser',
+        )
 
 
 class TagType(DjangoObjectType):

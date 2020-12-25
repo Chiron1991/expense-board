@@ -1,12 +1,12 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from django.views.decorators.csrf import csrf_exempt
-from graphene_django.views import GraphQLView
+
+from expenses.graphql.views import PrivateGraphQLView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=settings.DEBUG))),
+    path('graphql/', PrivateGraphQLView.as_view(graphiql=settings.DEBUG)),
 ]
 
 if settings.DEBUG:

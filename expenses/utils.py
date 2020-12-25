@@ -2,8 +2,10 @@ import functools
 import json
 import pprint
 import sys
+from http import HTTPStatus
 
 from django.core.serializers.json import DjangoJSONEncoder
+from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.html import format_html
 
@@ -40,3 +42,14 @@ def related_object_link(func):
         return format_html('<a href="{}">{}</a>', url, display_text)
 
     return wrapper
+
+
+class AuthenticationRequiredMixin:
+    """
+    Can be mixed into CBVs and will return HTTP 401 if the user is not authenticated.
+    """
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponse(status=HTTPStatus.UNAUTHORIZED)
+        return super().dispatch(request, *args, **kwargs)

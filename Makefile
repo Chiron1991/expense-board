@@ -10,6 +10,10 @@ mmg:
 sh:
 	python manage.py shell_plus
 
+lint:
+	sh -c "flake8 ."
+	sh -c "isort --check-only ."
+
 test:
 	python manage.py test
 

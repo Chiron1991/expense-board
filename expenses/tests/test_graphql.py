@@ -5,7 +5,7 @@ import graphene
 from django.test import TestCase
 from moneyed import Money
 
-from expenses.graphql.object_types import MoneyType, _CURRENCY_SYMBOLS
+from expenses.graphql.object_types import _CURRENCY_SYMBOLS, MoneyType
 from expenses.utils import GraphQLTestCase
 
 

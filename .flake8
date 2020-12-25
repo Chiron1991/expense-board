@@ -1,0 +1,11 @@
+[flake8]
+max-line-length = 120
+max-complexity = 10
+exclude =
+    .git
+    .idea
+    frontend/
+    static/
+    migrations
+per-file-ignores =
+    expenseboard/settings/dev.py:F403,F405

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from expenses.models import Tag, CostCenter, VariableCost
+from expenses.models import CostCenter, Tag, VariableCost
 from expenses.utils import related_object_link
 
 # brand the admin from "Django" to "Expense Board"

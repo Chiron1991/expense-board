@@ -3,7 +3,7 @@ from django.core.management import BaseCommand
 from django.utils import timezone
 from djmoney.money import Money
 
-from expenses.models import Tag, CostCenter, VariableCost
+from expenses.models import CostCenter, Tag, VariableCost
 
 
 class Command(BaseCommand):

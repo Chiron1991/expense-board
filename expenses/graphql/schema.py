@@ -1,7 +1,7 @@
 import graphene
 
-from expenses.graphql.object_types import TagType, CostCenterType, VariableCostType, UserType
-from expenses.models import Tag, CostCenter, VariableCost
+from expenses.graphql.object_types import CostCenterType, TagType, UserType, VariableCostType
+from expenses.models import CostCenter, Tag, VariableCost
 
 
 class Query(graphene.ObjectType):

@@ -2,7 +2,7 @@ import graphene
 from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 
-from expenses.models import Tag, CostCenter, VariableCost
+from expenses.models import CostCenter, Tag, VariableCost
 
 _CURRENCY_SYMBOLS = {
     'EUR': '€',

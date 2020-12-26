@@ -17,14 +17,17 @@ lint:
 test:
 	python manage.py test
 
+test_cov:
+	coverage run
+	coverage html
+
 init_dev:
 	poetry install
 	rm -f db.sqlite3 || true
 	poetry run python manage.py migrate
 	poetry run python manage.py createsuperuser
 	poetry run python manage.py seed_data
-	$(MAKE) rs
 
-export_poetry_lockfile:
+requirements:
 	poetry export -f requirements.txt --output requirements.txt
 	poetry export --dev -f requirements.txt --output requirements-dev.txt

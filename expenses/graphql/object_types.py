@@ -16,20 +16,20 @@ class MoneyType(graphene.ObjectType):
     Used to represent moneyed's Money objects (as used by django-money's MoneyField).
     """
     amount = graphene.String()
-    currencyName = graphene.String()
-    currencyCode = graphene.String()
-    currencySymbol = graphene.String()
+    currency_name = graphene.String()
+    currency_code = graphene.String()
+    currency_symbol = graphene.String()
 
     def resolve_amount(self, info):
         return str(self.amount)
 
-    def resolve_currencyName(self, info):
+    def resolve_currency_name(self, info):
         return self.currency.name
 
-    def resolve_currencyCode(self, info):
+    def resolve_currency_code(self, info):
         return self.currency.code
 
-    def resolve_currencySymbol(self, info):
+    def resolve_currency_symbol(self, info):
         return _CURRENCY_SYMBOLS.get(self.currency.code)
 
 

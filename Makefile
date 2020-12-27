@@ -20,6 +20,7 @@ test:
 test_cov:
 	coverage run
 	coverage html
+	coverage report
 
 dbuild:
 	docker build . --pull -t chiron1991/expense-board:latest

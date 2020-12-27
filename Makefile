@@ -21,6 +21,9 @@ test_cov:
 	coverage run
 	coverage html
 
+dbuild:
+	docker build . --pull -t chiron1991/expense-board:latest
+
 init_dev:
 	poetry install
 	rm -f db.sqlite3 || true

@@ -37,6 +37,7 @@ exec gunicorn expenseboard.wsgi:application \
   --name expenseboard \
   --bind 0.0.0.0:80 \
   --workers $NUM_WORKER \
+  --threads 2 \
   --log-level=info \
   --log-file=/srv/logs/gunicorn.log \
   --access-logfile=/srv/logs/access.log

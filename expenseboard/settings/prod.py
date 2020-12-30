@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'djmoney',
     'graphene_django',
     # local
+    'authentication',
     'expenses',
 ]
 

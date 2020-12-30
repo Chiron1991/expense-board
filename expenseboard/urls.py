@@ -6,6 +6,7 @@ from expenses.graphql.views import PrivateGraphQLView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('authentication/', include(('authentication.urls', 'authentication'))),
     path('graphql/', PrivateGraphQLView.as_view(graphiql=settings.DEBUG)),
 ]
 
